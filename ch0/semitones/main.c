@@ -99,6 +99,35 @@ NumericalPitchClasses matchNote(char note[4]) {
   }
 }
 
+const char *nameInterval(int interval) {
+  switch (interval) {
+  case 1:
+    return "minor 2nd up or major 7th down";
+  case 2:
+    return "major 2nd up or minor 7th down";
+  case 3:
+    return "minor 3rd up or major 6th down";
+  case 4:
+    return "major 3rd up or minor 6th down";
+  case 5:
+    return "perfect 4th up or perfect 5th down";
+  case 6:
+    return "augmented 4th ";
+  case 7:
+    return "perfect 5th up or perfect 4th down";
+  case 8:
+    return "minor 6th up or major 3rd down";
+  case 9:
+    return "major 6th up or minor 3rd down";
+  case 10:
+    return "minor 7th up or major 2nd down";
+  case 11:
+    return "major 7th up or minor 2nd down";
+  default:
+    return "unison";
+  }
+}
+
 void calculateIntervalModule12(NumericalPitchClasses pitch1,
                                NumericalPitchClasses pitch2) {
   int interval = pitch1 - pitch2;
@@ -110,6 +139,9 @@ void calculateIntervalModule12(NumericalPitchClasses pitch1,
 
   printf("%d semitones up or %d semitones down\n", interval,
          interval ? 12 - interval : 0);
+
+  const char *result = nameInterval(interval);
+  printf("That is, %s\n", result);
 }
 
 int main(void) {
