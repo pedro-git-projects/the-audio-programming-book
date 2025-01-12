@@ -1,0 +1,11 @@
+# Ignore all files by default
+*
+
+# Allow directories to be traversed
+!*/
+
+# Allow files with extensions (e.g., .c, .h, .txt, etc.)
+!*.*
+
+# Specifically ignore .o files in all directories
+*.o
